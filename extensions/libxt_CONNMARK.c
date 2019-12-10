@@ -884,9 +884,9 @@ static int connmark_tg_xlate_v3(struct xt_xlate *xl,
 					     info->ctmark, ~info->ctmask);
 		}
 		if (info->func & XT_CONNMARK_DSCP) {
-		/* FIXME */
-/* the nftables syntax would go here if only we knew what it was */
-				xt_xlate_add(xl, "dscp shift or 0x%x", info->shift_bits,
+/* FIXME the nftables syntax would go here if only we knew what it was */
+			xt_xlate_add(xl, "ct mark set typeof(ct mark) ip dscp "
+					 "<< %u or 0x%x", info->shift_bits,
 					     info->ctmask);
 		}
 		break;
